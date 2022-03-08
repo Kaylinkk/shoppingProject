@@ -1,0 +1,20 @@
+@import "~antd/dist/antd.css";
+
+.ant-btn-primary {
+  color: #fff;
+  border-color: #faac20;
+  background: #faac20;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  color: #fff;
+  border-color: #f5aa20;
+  background: #f5aa20;
+}
+
+.login-form-forgot {
+  color: #362507;
+}

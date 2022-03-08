@@ -1,0 +1,20 @@
+.image-gallery-left-nav .image-gallery-svg,
+.image-gallery-right-nav .image-gallery-svg {
+  height: 40px;
+  width: 20px;
+}
+
+.image-gallery-svg,
+.image-gallery-play-button .image-gallery-svg {
+  height: 0;
+  width: 0;
+}
+
+/* product info */
+@import "~antd/dist/antd.css";
+
+.ant-btn,
+.ant-btn-round,
+.ant-btn-lg {
+  background-color: #faac20;
+}

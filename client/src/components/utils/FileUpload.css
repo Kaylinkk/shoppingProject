@@ -1,0 +1,30 @@
+@import "~antd/dist/antd.css";
+
+.dropzone {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image {
+  display: flex;
+  width: 600px;
+  height: 200px;
+  overflow-x: auto;
+}
+
+.image::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background: #ffffff;
+}
+.image::-webkit-scrollbar-thumb {
+  border-radius: 3.5px;
+  background-color: #faac20;
+}
+.image::-webkit-scrollbar-track {
+  background: #ebe0cd;
+}
+
+.ant-btn {
+  top: 5rem;
+}

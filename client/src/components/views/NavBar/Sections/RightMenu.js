@@ -46,7 +46,7 @@ function RightMenu(props) {
         </Menu.Item>
 
         <Menu.Item key="cart" style={{ paddingBottom: 3 }}>
-          <Badge count={user.userData && user.userData.cart.length}>
+          <Badge count={user.userData && user.userData.cart && user.userData.cart.length}>
             <a href="/user/cart" className="cart" style={{ marginRight: -22 }}>
               <Icon type="shopping-cart" style={{ fontSize: 30, marginBottom: 3 }} />
             </a>

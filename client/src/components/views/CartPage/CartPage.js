@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { getCartItems, removeCartItem } from '../../../_actions/user_actions'
 import UserCardBlock from './Sections/UserCardBlock';
-
+import { Empty } from 'antd';
+import './Sections/UserCardBlock.css'
 
 function CartPage(props) {
 
     const [Total, setTotal] = useState(0);
+    const [ShowAmount, setShowAmount] = useState(false)
 
 
     const dispatch = useDispatch();
@@ -22,7 +24,7 @@ function CartPage(props) {
 
                 })
                 dispatch(getCartItems(cartItems, props.user.userData.cart))
-                    .then(response => { calTotal(response.payload.product) })
+                    .then(response => { calTotal(response.payload) })
 
             }
         }
@@ -31,17 +33,19 @@ function CartPage(props) {
 
     let calTotal = (cartDetail) => {
         let total = 0;
-
-        cartDetail.map(item => {
+        cartDetail.product.map(item => {
             total += parseFloat(item.price) * item.quantity
         })
         setTotal(total)
+        setShowAmount(true)
     }
 
     let removeProduct = (productId) => {
         dispatch(removeCartItem(productId))
             .then(response => {
-                console.log(response)
+                if (response.payload.productInfo.length <= 0) {
+                    setShowAmount(false)
+                }
             })
 
 
@@ -57,13 +61,20 @@ function CartPage(props) {
                     removeItem={removeProduct} />
             </div>
 
-            <div>
 
+            {ShowAmount ?
                 <div style={{ marginTop: '3rem' }}>
                     <h2>Estimated total: ${Total}</h2>
                 </div>
-            </div>
+                :
 
+                <Empty
+                    image="https://cdn.dribbble.com/users/44167/screenshots/4199208/media/6b915e31225bcd92bee249dc7a977dda.png"
+                    description={false}
+                >
+
+                </Empty>
+            }
 
 
         </div>

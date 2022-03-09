@@ -21,7 +21,7 @@ function DetailPage(props) {
     }, [])
 
     return (
-        <div style={{ width: '85%', padding: '3rem 4rem' }}>
+        <div style={{ width: '100%', padding: '3rem 17rem' }}>
             <br />
             <Row gutter={[16, 16]} >
 

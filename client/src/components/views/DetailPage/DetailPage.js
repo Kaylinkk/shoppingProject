@@ -7,18 +7,16 @@ import ProductInfo from './Sections/ProductInfo';
 
 
 function DetailPage(props) {
-    const productId = props.match.params.productId
+
+    let productId = props.match.params.productId
     const [Product, setProduct] = useState({});
     useEffect(() => {
-        axios.get(`/api/product/products_by_id?id=${productId}&type=single`)
+        axios.get(`/api/product/productid?id=${productId}&type=single`)
             .then(response => {
-                if (response.data.success) {
-                    // console.log(response.data)
-                    setProduct(response.data.product[0])
-                } else {
-                    alert('failed to get detail page of product')
-                }
+                setProduct(response.data[0])
+                console.log(response.data[0])
             })
+            .catch(err => alert(err))
     }, [])
 
     return (
@@ -32,7 +30,7 @@ function DetailPage(props) {
                 </Col>
                 <Col lg={12} sm={24}>
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <h1>{Product.title}</h1>
+                        {/* <h1>{Product.title}</h1> */}
                     </div>
                     <ProductInfo detail={Product} />
                 </Col>
@@ -42,5 +40,6 @@ function DetailPage(props) {
         </div>
     )
 }
+
 
 export default DetailPage

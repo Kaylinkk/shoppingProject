@@ -19,9 +19,6 @@ function LandingPage() {
     const [Filters, setFilters] = useState([])
     const [SearchTerms, setSearchTemrs] = useState("")
 
-
-
-
     useEffect(() => {
 
         let body = {

@@ -8,7 +8,7 @@ function ProductImage(props) {
 
     useEffect(() => {
 
-        if (props.detail?.images && props.detail.images.length > 0) {
+        if (props.detail.images && props.detail.images.length > 0) {
             let images = []
 
             props.detail.images.map(item => {

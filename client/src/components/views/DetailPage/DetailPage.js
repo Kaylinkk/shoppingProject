@@ -13,8 +13,9 @@ function DetailPage(props) {
     useEffect(() => {
         axios.get(`/api/product/productid?id=${productId}&type=single`)
             .then(response => {
-                setProduct(response.data[0])
-                console.log(response.data[0])
+                // setProduct(response.data[0])???
+                setProduct(response.data.product[0])
+
             })
             .catch(err => alert(err))
     }, [])
@@ -30,7 +31,7 @@ function DetailPage(props) {
                 </Col>
                 <Col lg={12} sm={24}>
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        {/* <h1>{Product.title}</h1> */}
+                        <h1>{Product.title}</h1>
                     </div>
                     <ProductInfo detail={Product} />
                 </Col>

@@ -15,6 +15,7 @@ function CartPage(props) {
             if (props.user.userData.cart.length > 0) {
                 props.user.userData.cart.forEach(item => {
                     cartItems.push(item.id)
+                    console.log(props.user.cartdetail)
                 })
                 dispatch(getCartItems(cartItems, props.user.userData.cart))
             }
@@ -26,7 +27,7 @@ function CartPage(props) {
             <h1>🧺 {props.user.userData && props.user.userData.name}'s Cart🛒</h1>
 
             <div>
-                <UserCardBlock products={props.user.cartDetail} />
+                <UserCardBlock products={props.user.cartDetail && props.user.cartDetail.product} />
             </div>
 
         </div>

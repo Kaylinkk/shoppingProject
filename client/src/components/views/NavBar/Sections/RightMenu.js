@@ -51,7 +51,9 @@ function RightMenu(props) {
               <Icon type="shopping-cart" style={{ fontSize: 30, marginBottom: 3 }} />
             </a>
           </Badge>
+
         </Menu.Item>
+
 
       </Menu>
     )

@@ -10,6 +10,7 @@ import Footer from "./views/Footer/Footer";
 import UploadProductPage from './views/UploadProductPage/UploadProductPage';
 import DetailPage from './views/DetailPage/DetailPage';
 import CartPage from './views/CartPage/CartPage';
+import HistoryPage from './views/HistoryPage/HistoryPage';
 //null   Anyone Can go inside
 //true   only logged in user can go inside
 //false  logged in user can't go inside
@@ -28,6 +29,7 @@ function App() {
           {/* null => 아무나 출입이 가능, true, 로그인한 유저만 가능, falls, 로그인한유저는 안됨  */}
           <Route exact path="/product/:productId" component={Auth(DetailPage, null)} />
           <Route exact path="/user/cart" component={Auth(CartPage, true)} />
+          <Route exact path="/history" component={Auth(HistoryPage, true)} />
         </Switch>
 
       </div>

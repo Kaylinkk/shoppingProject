@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { getCartItems, removeCartItem } from '../../../_actions/user_actions'
+import { getCartItems, removeCartItem, onSuccessBuy } from '../../../_actions/user_actions'
 import UserCardBlock from './Sections/UserCardBlock';
-import { Empty } from 'antd';
+import { Empty, Result } from 'antd';
+import { SmileOutlined } from '@ant-design/icons';
 import './Sections/UserCardBlock.css'
 import Paypal from '../../utils/Paypal';
 
@@ -10,6 +11,7 @@ function CartPage(props) {
 
     const [Total, setTotal] = useState(0);
     const [ShowAmount, setShowAmount] = useState(false)
+    const [PaySuccess, setPaySuccess] = useState(false)
 
 
     const dispatch = useDispatch();
@@ -52,6 +54,19 @@ function CartPage(props) {
 
     }
 
+    const transactionOK = (paypaldata) => {
+        dispatch(onSuccessBuy({
+            paymentData: paypaldata,
+            cartDetail: props.user.cartDetail.product
+        }))
+            .then(response => {
+                if (response.payload.success) {
+                    setShowAmount(false)
+                    setPaySuccess(true)
+                }
+            })
+    }
+
 
     return (
         <div style={{ width: '85%', margin: '3rem auto' }}>
@@ -66,28 +81,30 @@ function CartPage(props) {
             {ShowAmount ?
                 <div style={{ marginTop: '3rem' }}>
                     <h2 style={{ marginBottom: '3rem' }}>Estimated total: ${Total}</h2>
-                    <Paypal
-
-                        total={Total}
-                    />
-
                 </div>
 
-                :
+                : PaySuccess ?
+                    <Result
+                        icon={<SmileOutlined />}
+                        title="You just made my day! thank you for your purchase XD" />
 
-                <Empty
-                    image="https://cdn.dribbble.com/users/44167/screenshots/4199208/media/6b915e31225bcd92bee249dc7a977dda.png"
-                    description={false}
-                >
+                    :
 
-                </Empty>
+                    <Empty
+                        image="https://cdn.dribbble.com/users/44167/screenshots/4199208/media/6b915e31225bcd92bee249dc7a977dda.png"
+                        description={false}
+                    />
+
             }
 
-
-
-
-
-
+            {
+                ShowAmount &&
+                <Paypal
+                    total={Total}
+                    onSuccess={transactionOK}
+                    showAmount={ShowAmount}
+                />
+            }
 
         </div>
     )

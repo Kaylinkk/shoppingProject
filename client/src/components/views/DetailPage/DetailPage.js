@@ -18,7 +18,7 @@ function DetailPage(props) {
 
             })
             .catch(err => alert(err))
-    }, [])
+    }, [productId])
 
     return (
         <div style={{ width: '100%', padding: '3rem 17rem' }}>

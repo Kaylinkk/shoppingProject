@@ -72,7 +72,7 @@ function LoginPage(props) {
           values,
           touched,
           errors,
-          dirty,
+          // dirty,
           isSubmitting,
           handleChange,
           handleBlur,

@@ -45,7 +45,7 @@ function Paypal(props) {
     let showAmount = props.showAmount
     return (
         <div>
-            {showAmount || (
+            {showAmount && (
                 <PaypalExpressBtn
                     env={env}
                     client={client}

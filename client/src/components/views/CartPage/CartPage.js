@@ -8,16 +8,12 @@ import './Sections/UserCardBlock.css'
 import Paypal from '../../utils/Paypal';
 
 function CartPage(props) {
-
+    const dispatch = useDispatch();
     const [Total, setTotal] = useState(0);
     const [ShowAmount, setShowAmount] = useState(false)
     const [PaySuccess, setPaySuccess] = useState(false)
 
-
-    const dispatch = useDispatch();
     useEffect(() => {
-
-
         let cartItems = []
         //리덕스 User state의 카트 안에 상품이 들어있는지 확인
         if (props.user.userData && props.user.userData.cart) {
@@ -70,7 +66,11 @@ function CartPage(props) {
 
     return (
         <div style={{ width: '85%', margin: '3rem auto' }}>
-            <h1>🧺 {props.user.userData && props.user.userData.name}'s Cart🛒</h1>
+            <h1>
+                <span role="img" aria-label="basket">🧺</span>
+                {props.user.userData && props.user.userData.name}'s Cart
+
+                <span role="img" aria-label="cart">🛒</span> </h1>
 
             <div>
                 <UserCardBlock products={props.user.cartDetail && props.user.cartDetail.product}

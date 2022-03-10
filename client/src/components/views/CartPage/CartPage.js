@@ -4,6 +4,7 @@ import { getCartItems, removeCartItem } from '../../../_actions/user_actions'
 import UserCardBlock from './Sections/UserCardBlock';
 import { Empty } from 'antd';
 import './Sections/UserCardBlock.css'
+import Paypal from '../../utils/Paypal';
 
 function CartPage(props) {
 
@@ -64,8 +65,14 @@ function CartPage(props) {
 
             {ShowAmount ?
                 <div style={{ marginTop: '3rem' }}>
-                    <h2>Estimated total: ${Total}</h2>
+                    <h2 style={{ marginBottom: '3rem' }}>Estimated total: ${Total}</h2>
+                    <Paypal
+
+                        total={Total}
+                    />
+
                 </div>
+
                 :
 
                 <Empty
@@ -75,6 +82,11 @@ function CartPage(props) {
 
                 </Empty>
             }
+
+
+
+
+
 
 
         </div>

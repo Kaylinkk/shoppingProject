@@ -42,29 +42,33 @@ function Paypal(props) {
     // For production app-ID:
     //   => https://developer.paypal.com/docs/classic/lifecycle/goingLive/
 
-    let showAmount = props.showAmount
+    // let showAmount = props.showAmount
     return (
-        <div>
-            {showAmount && (
-                <PaypalExpressBtn
-                    env={env}
-                    client={client}
-                    currency={currency}
-                    total={total}
-                    onError={onError}
-                    onSuccess={onSuccess}
-                    onCancel={onCancel}
-                    style={{
-                        size: 'responsive',
-                        color: 'gold',
-                        shape: 'pill',
-                        label: 'checkout',
-                        tagline: 'true'
-                    }}
-                />
+        // <div>
+        //     {showAmount && (
 
-            )}
-        </div>
+
+        //     )}
+        // </div>
+
+
+
+        <PaypalExpressBtn
+            env={env}
+            client={client}
+            currency={currency}
+            total={total}
+            onError={onError}
+            onSuccess={onSuccess}
+            onCancel={onCancel}
+            style={{
+                size: 'responsive',
+                color: 'gold',
+                shape: 'pill',
+                label: 'checkout',
+                tagline: 'true'
+            }}
+        />
 
     )
 }

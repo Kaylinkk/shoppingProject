@@ -102,7 +102,7 @@ function CartPage(props) {
                 <Paypal
                     total={Total}
                     onSuccess={transactionOK}
-                    showAmount={ShowAmount}
+                // showAmount={ShowAmount}
                 />
             }
 

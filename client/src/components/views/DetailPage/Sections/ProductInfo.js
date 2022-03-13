@@ -15,6 +15,9 @@ function ProductInfo(props) {
 
     }
 
+    let website = `https://www.walmart.com/search?q=${props.detail.title}`
+
+
     return (
         <div>
             <Descriptions title="Product Info">
@@ -23,6 +26,46 @@ function ProductInfo(props) {
                 <Descriptions.Item label="rate"><Rate disabled defaultValue={4} /></Descriptions.Item>
                 <Descriptions.Item label="Website">where to get?</Descriptions.Item>
             </Descriptions>
+
+            <table className='tg'>
+                <thead>
+                    <tr>
+                        <th className="tg-7btt">Company </th>
+                        <th className="tg-7btt">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td className="tg-c3ow">
+
+                            <a href={website}>
+                                <img src='https://cdn.corporate.walmart.com/dims4/WMT/cf80266/2147483647/strip/true/crop/855x305+0+0/resize/1960x700!/quality/90/?url=https%3A%2F%2Fcdn.corporate.walmart.com%2F98%2F28%2F342ccbff478ab025592645fafcfc%2Fwalmart-logo.png' alt="walmart"></img></a>
+                        </td>
+                        <td className="tg-c3ow"></td>
+                    </tr>
+                    <tr>
+                        <td className="tg-c3ow"></td>
+                        <td className="tg-c3ow"></td>
+                    </tr>
+                    <tr>
+                        <td className="tg-c3ow"></td>
+                        <td className="tg-c3ow"> </td>
+                    </tr>
+                    <tr>
+                        <td className="tg-c3ow"></td>
+                        <td className="tg-c3ow"></td>
+                    </tr>
+                    <tr>
+                        <td className="tg-c3ow"></td>
+                        <td className="tg-c3ow"></td>
+                    </tr>
+                    <tr>
+                        <td className="tg-c3ow"></td>
+                        <td className="tg-c3ow"></td>
+                    </tr>
+                </tbody>
+            </table>
+
 
             <br />
             <br />

@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Row, Col } from 'antd';
 import ProductImage from './Sections/ProductImage';
 import ProductInfo from './Sections/ProductInfo';
-
+import '../DetailPage/Sections/ProductImage.css'
 
 
 function DetailPage(props) {
@@ -21,24 +21,35 @@ function DetailPage(props) {
     }, [productId])
 
     return (
-        <div style={{ width: '100%', padding: '3rem 17rem' }}>
+        <>
+            <div style={{ width: '100%', padding: '3rem 17rem' }}>
+                <br />
+                <Row gutter={[16, 16]} >
+
+                    <Col lg={12} sm={24}>
+                        <ProductImage detail={Product} />
+
+                    </Col>
+                    <Col lg={12} sm={24}>
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <h1>{Product.title}</h1>
+                        </div>
+                        <ProductInfo detail={Product} />
+                    </Col>
+                </Row>
+
+
+            </div>
             <br />
-            <Row gutter={[16, 16]} >
-
-                <Col lg={12} sm={24}>
-                    <ProductImage detail={Product} />
-
-                </Col>
-                <Col lg={12} sm={24}>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <h1>{Product.title}</h1>
-                    </div>
-                    <ProductInfo detail={Product} />
-                </Col>
-            </Row>
+            <br />
+            <div className='DetailPage_data' style={{ width: '100%', padding: '3rem 17rem' }}>
+                <h2>website</h2>
 
 
-        </div>
+            </div>
+
+        </>
+
     )
 }
 

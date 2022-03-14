@@ -21,5 +21,13 @@
 
 /* DetailPage */
 
-.DetailPage_data {
+/* .DetailPage_data {
+} */
+
+/* productioninfo */
+
+.img_logo {
+  width: 75%;
+  max-height: 4rem;
+  object-fit: contain;
 }

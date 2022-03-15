@@ -94,8 +94,8 @@ function UploadProductPage(props) {
                 <TextArea onChange={descriptionChangeHandler} value={Description} />
                 <br />
                 <br />
-                <label>price($)</label>
-                <Input type="number" step="0.01" onChange={priceChangeHandler} value={Price} />
+                <label>price(KRW)</label>
+                <Input type="number" step="10" onChange={priceChangeHandler} value={Price} />
                 <br />
                 <br />
                 <select onChange={groseryChangeHandler} value={Groserykind}>

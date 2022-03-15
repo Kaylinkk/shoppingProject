@@ -21,6 +21,7 @@
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.10",
     "connect-history-api-fallback": "^1.6.0",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.5",

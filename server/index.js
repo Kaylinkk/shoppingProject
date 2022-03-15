@@ -5,7 +5,7 @@ const config = require("./config/key");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const path = require("path");
-const cors = require('cors')
+const cors = require('cors');
 
 
 const connect = mongoose.connect(config.mongoURI,
@@ -21,7 +21,10 @@ app.use(bodyParser.urlencoded({ extended: true })); //application/x-www-form-url
 app.use(bodyParser.json()); //json파일로 parsing
 
 app.use(cookieParser());
-app.use(cors()); // 모든 도메인에서 제한 없이 해당 서버에 요청을 보내고 응답을 받을 수 있다. 
+app.use(cors({
+  origin: '*',
+  credential: 'true'
+})); // 모든 도메인에서 제한 없이 해당 서버에 요청을 보내고 응답을 받을 수 있다. 
 
 
 

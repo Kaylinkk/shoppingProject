@@ -14,7 +14,7 @@ function LandingPage() {
 
     const [Products, setProducts] = useState([])
     const [Skip, setSkip] = useState(0)
-    const [Limit, setLimit] = useState(8)
+    const [Limit, setLimit] = useState(16)
     const [Postlength, setPostlength] = useState()
     const [Filters, setFilters] = useState([])
     const [SearchTerms, setSearchTemrs] = useState("")
@@ -71,7 +71,7 @@ function LandingPage() {
             >
                 <Meta
                     title={product.title}
-                    description={`$${product.price}`}
+                    description={`${product.price} KRW`}
                 />
             </Card>
         </Col >

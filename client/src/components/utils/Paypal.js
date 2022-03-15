@@ -28,7 +28,7 @@ function Paypal(props) {
     }
 
     let env = 'sandbox'; // you can set here to 'production' for production
-    let currency = 'USD'; // or you can set this value from your props or state
+    let currency = 'JPY'; // or you can set this value from your props or state
     let total = props.total; // same as above, this is the total amount (based on currency) to be paid by using Paypal express checkout
     // Document on Paypal's currency code: https://developer.paypal.com/docs/classic/api/currency_codes/
 

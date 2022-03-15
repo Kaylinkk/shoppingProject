@@ -24,7 +24,7 @@ function ProductInfo(props) {
     return (
         <div>
             <Descriptions title="Product Info">
-                <Descriptions.Item label="Price">{props.detail.price}</Descriptions.Item>
+                <Descriptions.Item label="Price">{props.detail.price} KRW</Descriptions.Item>
                 <Descriptions.Item label="Description">{props.detail.description}</Descriptions.Item>
                 <Descriptions.Item label="rate"><Rate disabled defaultValue={4} /></Descriptions.Item>
                 <Descriptions.Item label="Website">where to get?</Descriptions.Item>

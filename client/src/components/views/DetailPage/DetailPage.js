@@ -5,6 +5,11 @@ import ProductImage from './Sections/ProductImage';
 import ProductInfo from './Sections/ProductInfo';
 import '../DetailPage/Sections/ProductImage.css'
 
+import GSshop from './../../utils/GSshop';
+import Fooden from './../../utils/Fooden';
+import Homeplus from '../../utils/Homeplus';
+import SSG from '../../utils/SSG';
+
 
 function DetailPage(props) {
 
@@ -44,6 +49,10 @@ function DetailPage(props) {
             <br />
             <div className='DetailPage_data' style={{ width: '100%', padding: '3rem 17rem' }}>
                 <h2>website</h2>
+                <GSshop title={Product.title} />
+                <Fooden title={Product.title} />
+                <Homeplus title={Product.title} />
+                <SSG title={Product.title} />
 
 
             </div>

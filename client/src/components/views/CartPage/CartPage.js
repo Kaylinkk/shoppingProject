@@ -80,7 +80,7 @@ function CartPage(props) {
 
             {ShowAmount ?
                 <div style={{ marginTop: '3rem' }}>
-                    <h2 style={{ marginBottom: '3rem' }}>Estimated total: ${Total}</h2>
+                    <h2 style={{ marginBottom: '3rem' }}>Estimated total: {Total} KRW</h2>
                 </div>
 
                 : PaySuccess ?

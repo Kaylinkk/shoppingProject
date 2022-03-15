@@ -12,7 +12,8 @@ const Grosery = [
     { key: 4, value: "rice" },
     { key: 5, value: "fruit" },
     { key: 6, value: "egg" },
-    { key: 7, value: "grain" }
+    { key: 7, value: "grain" },
+    { key: 8, value: "nuts" }
 ]
 
 

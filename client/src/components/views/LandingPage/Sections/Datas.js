@@ -30,6 +30,10 @@ const grosery = [
     {
         "_id": 7,
         "name": "grain"
+    },
+    {
+        "_id": 8,
+        "name": "nuts"
     }
 
 ]

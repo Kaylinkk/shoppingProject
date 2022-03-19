@@ -27,7 +27,7 @@ function DetailPage(props) {
 
     return (
         <>
-            <div style={{ width: '100%', padding: '3rem 17rem' }}>
+            <div style={{ width: '100%', padding: '3rem 10rem' }}>
                 <br />
                 <Row gutter={[16, 16]} >
 
@@ -35,7 +35,7 @@ function DetailPage(props) {
                         <ProductImage detail={Product} />
 
                     </Col>
-                    <Col lg={12} sm={24}>
+                    <Col lg={12} sm={24} style={{ paddingLeft: '5rem' }}>
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
                             <h1>{Product.title}</h1>
                         </div>
@@ -47,12 +47,12 @@ function DetailPage(props) {
             </div>
             <br />
             <br />
-            <div className='DetailPage_data' style={{ width: '100%', padding: '3rem 17rem' }}>
+            <div className='DetailPage_data' style={{ width: '100%', padding: '3rem 10rem' }}>
                 <h2>website</h2>
-                <GSshop title={Product.title} />
-                <Fooden title={Product.title} />
+                {/* <GSshop title={Product.title} /> */}
+                {/* <Fooden title={Product.title} /> */}
                 <Homeplus title={Product.title} />
-                <SSG title={Product.title} />
+                {/* <SSG title={Product.title} /> */}
 
 
             </div>

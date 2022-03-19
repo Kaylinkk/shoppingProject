@@ -164,9 +164,13 @@ router.post('/successBuy', auth, (req, res) => {
     let history = [];
     let transactionData = [];
 
+    const timeElapsed = Date.now();
+    const today = new Date(timeElapsed)
+
+
     req.body.cartDetail.forEach((item) => {
         history.push({
-            dateOfPurchase: Date.now(),
+            dateOfPurchase: today.toLocaleDateString(),
             name: item.title,
             id: item._id,
             price: item.price,

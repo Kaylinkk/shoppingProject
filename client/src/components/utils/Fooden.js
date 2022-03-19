@@ -27,20 +27,20 @@ function Fooden(props) {
     const processData = async (keyword) => {
         let items = [];
         const html = await getHTML(keyword);
-        // const $ = cheerio.load(data);
-        // const $list = $('.b--near-white')
+        const $ = cheerio.load(html.data);
+        const $list = $('.type-product ')
 
-        // $list.each((index, node) => {
-        //     items.push({
-        //         Title: $(node).find('.w_O > span').text(),
-        //         price: $(node).find('.lh-title > .lh-copy').text(),
-        //         img: $(node).find('.relative > div >img').attr("src")
-        //     })
-        //     setItems(items)
+        $list.each((index, node) => {
+            items.push({
+                Title: $(node).find('.productInfoBox >h3').text(),
+                price: $(node).find('.productInfoBox >.price > .amount').text(),
+                img: $(node).find('productTopSection > a > img').attr("src")
+            })
+            setItems(items)
 
-        // });
+        });
 
-        console.log(html)
+        // console.log(Items);
 
 
     }

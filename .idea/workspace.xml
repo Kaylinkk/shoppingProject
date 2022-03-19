@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4be259ce-9b2c-4de5-9283-5b2567cb890d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/client/src/components/utils/Fooden.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/utils/Fooden.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/utils/GSshop.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/utils/GSshop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/utils/Homeplus.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/utils/Homeplus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/utils/SSG.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/utils/SSG.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/views/DetailPage/DetailPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/views/DetailPage/DetailPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="26T52ezTmbZgKSq0WPFpyXYhzBc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4be259ce-9b2c-4de5-9283-5b2567cb890d" name="Default Changelist" comment="" />
+      <created>1647434531463</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647434531463</updated>
+    </task>
+    <servers />
+  </component>
+</project>

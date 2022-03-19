@@ -3,55 +3,53 @@ import axios from 'axios';
 import * as cheerio from 'cheerio';
 import { useState } from 'react';
 
-
-
-
 function SSG(props) {
+
     const [Items, setItems] = useState([])
-
     let title = props.title
+    const ssg = "https://www.ssg.com/search.ssg?target=all&query="
 
-    const ssg = "https://emart.ssg.com/search.ssg?target=all&query=" + title
-
-
-    const getHTML = async (keyword) => {
+    const scrapeStaticWebpage = async () => {
         try {
-            return await axios.get(ssg)
+            const { data } = await axios.get(ssg + encodeURI(title));
+
+            processData(data);
         } catch (err) {
-            console.log(err);
+            console.log("error", err);
         }
+    };
 
+    const processData = async (data) => {
 
-    }
+        const $ = cheerio.load(data);
+        const $list = $('.cunit_t232')
 
-
-    const processData = async (keyword) => {
         let items = [];
-        const html = await getHTML(keyword);
-        // const $ = cheerio.load(data);
-        // const $list = $('.b--near-white')
+        $list.each((index, element) => {
 
-        // $list.each((index, node) => {
-        //     items.push({
-        //         Title: $(node).find('.w_O > span').text(),
-        //         price: $(node).find('.lh-title > .lh-copy').text(),
-        //         img: $(node).find('.relative > div >img').attr("src")
-        //     })
-        //     setItems(items)
-
-        // });
-
-        console.log(html)
-
-
+            const target = $(element)
+            const productTitle = target.find('.cunit_md >.title > a >.tx_ko').text()
+            const price = target.find('.cunit_price > .opt_price> .ssg_price').text()
+            const img = "https:" + target.find('.cunit_prod >.thmb > a > img').attr("src")
+            const link = "https://www.ssg.com/" + target.find('.thmb > a').attr('href')
+            const item = {
+                img: img,
+                name: productTitle,
+                price: price,
+                link: link,
+            }
+            items.push(item);
+            setItems(items)
+        });
+        console.log(items)
     }
 
-    processData("potato")
+    { scrapeStaticWebpage() }
 
     return (
 
 
-        <table>
+        <table >
             <thead>
                 <tr>
                     <th >Image </th>
@@ -61,12 +59,10 @@ function SSG(props) {
             </thead>
             <tbody>
                 <tr>
-                    {/* <td >{Items.Title}</td>
-                    <td >{Items.price}</td>
-                    <td>{Items.img}</td> */}
-                    <td >d</td>
-                    <td >d</td>
-                    <td>d</td>
+                    <td >{Items.name}</td>
+                    <td ></td>
+                    <td></td>
+
                 </tr>
             </tbody>
         </table>

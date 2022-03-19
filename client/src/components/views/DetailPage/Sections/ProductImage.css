@@ -31,3 +31,29 @@
   max-height: 4rem;
   object-fit: contain;
 }
+
+.ant-col .ant-col-sm-24 .ant-col-lg-12 {
+  padding-left: 9rem;
+}
+
+.price_wrap {
+  display: flex;
+  border-bottom: 0.5px solid #eaeaea;
+}
+
+.price_wrap p:first-child {
+  font-size: 40px;
+  font-family: "Spoqa-Medium", -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", Arial, sans-serif;
+  color: #222;
+}
+
+.price_wrap p:nth-child(2) {
+  margin: 20px 0px 0px 5px;
+  font-size: 20px;
+  color: #222;
+}
+
+.description_wrap p {
+  margin-top: 12px;
+}

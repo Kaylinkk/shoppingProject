@@ -40,7 +40,7 @@ function GSshop(props) {
 
         // });
 
-        console.log(html)
+        // console.log(html)
 
 
     }

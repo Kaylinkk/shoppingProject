@@ -117,6 +117,9 @@ function LandingPage() {
 
     return (
         <>
+            <div className='introduce' >
+                <h2> WE WILL MAKE YOUR LIFE EASIER <Icon type="smile" /> </h2>
+            </div>
 
             <div>
                 <Carousel autoplay >
@@ -138,9 +141,7 @@ function LandingPage() {
             </div>
             <div style={{ width: '75%', margin: '3rem auto' }}>
 
-                <div className='introduce' >
-                    <h2> We will make your life easier <Icon type="smile" /> </h2>
-                </div>
+
 
 
 

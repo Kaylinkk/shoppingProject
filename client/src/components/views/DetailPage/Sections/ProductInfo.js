@@ -71,21 +71,21 @@ function ProductInfo(props) {
                         <td className="tg-c3ow">
 
                             <a href={ssg} target="_blank" rel="noopener noreferrer">
-                                <img className='img_logo' src='https://play-lh.googleusercontent.com/U4fk5FzvwR4bPYWeTPmYX_Lpm3ANMHTcMEQ9qbrWO-qucIPPA9olM1bIiAmdZLpEIPMg=s360-rw' alt="ssg"></img></a>
+                                <img className='img_logo' src='https://cdn.digitaltoday.co.kr/news/photo/202010/249780_215115_201.jpg' alt="ssg"></img></a>
                         </td>
                         <td className="tg-c3ow"></td>
                     </tr>
                     <tr>
                         <td className="tg-c3ow">
                             <a href={elevenSreet} target="_blank" rel="noopener noreferrer">
-                                <img className='img_logo' src='https://image.newdaily.co.kr/site/data/img/2019/06/23/2019062300004_0.jpg' alt="11street"></img></a>
+                                <img className='img_logo' src='https://image.newdaily.co.kr/site/data/img/2017/06/28/2017062810060_0.jpg' alt="11street"></img></a>
                         </td>
                         <td className="tg-c3ow"></td>
                     </tr>
                     <tr>
                         <td className="tg-c3ow">
                             <a href={naverShopping} target="_blank" rel="noopener noreferrer">
-                                <img className='img_logo' src='http://wiki.hash.kr/images/thumb/d/d4/%EB%84%A4%EC%9D%B4%EB%B2%84_%EC%87%BC%ED%95%91_%EB%A1%9C%EA%B3%A0.png/300px-%EB%84%A4%EC%9D%B4%EB%B2%84_%EC%87%BC%ED%95%91_%EB%A1%9C%EA%B3%A0.png' alt="naver"></img></a>
+                                <img className='img_logo' src='https://cdnweb01.wikitree.co.kr/webdata/editor/202010/23/img_20201023120549_86827a0d.webp' alt="naver"></img></a>
                         </td>
                         <td className="tg-c3ow"> </td>
                     </tr>

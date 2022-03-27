@@ -1,0 +1,58 @@
+/* checkbox */
+
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+
+label {
+  cursor: pointer;
+}
+label input[type="checkbox"] {
+  display: none;
+}
+
+label div {
+  position: relative;
+  display: inline-block;
+  background: #faac2059;
+  padding: 6px 30px;
+  color: #92611f;
+  border-radius: 30px;
+  font-size: 20px;
+  margin: 0 9px 9px;
+  transition: 0.5s;
+  -webkit-user-select: none;
+  user-select: none;
+  overflow: hidden;
+}
+label div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+label:nth-child(2n + 1) input[type="checkbox"]:checked ~ div {
+  background: #faac20;
+  box-shadow: 0 8px 7px #faac20;
+}
+
+label:nth-child(2n + 2) input[type="checkbox"]:checked ~ div {
+  background: rgb(133, 98, 74);
+  box-shadow: 0 8px 7px rgb(133, 98, 74);
+  color: aliceblue;
+}
+
+.checkBox_list {
+  padding: 3rem;
+}
+
+.checkBox_list h2 {
+  padding: 2rem;
+  font-family: "Luckiest Guy", cursive;
+}
+
+.checkBox_list_name {
+  font-family: "Luckiest Guy", cursive;
+}

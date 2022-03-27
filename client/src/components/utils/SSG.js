@@ -28,10 +28,10 @@ function SSG(props) {
         $list.each((index, element) => {
 
             const target = $(element)
-            const productTitle = target.find('.cunit_md >.title > a >.tx_ko').text()
-            const price = target.find('.cunit_price > .opt_price> .ssg_price').text()
-            const img = "https:" + target.find('.cunit_prod >.thmb > a > img').attr("src")
-            const link = "https://www.ssg.com/" + target.find('.thmb > a').attr('href')
+            const productTitle = target.find('.cunit_md >.title > a >.tx_ko').text().slice(0, 10)
+            const price = target.find('.cunit_price > .opt_price> .ssg_price').text().slice(0, 10)
+            const img = "https:" + target.find('.cunit_prod >.thmb > a > img').attr("src").slice(0, 10)
+            const link = "https://www.ssg.com/" + target.find('.thmb > a').attr('href').slice(0, 10)
             const item = {
                 img: img,
                 name: productTitle,
@@ -59,7 +59,7 @@ function SSG(props) {
             </thead>
             <tbody>
                 <tr>
-                    <td >{Items.name}</td>
+                    {/* <td >{Items.name}</td> */}
                     <td ></td>
                     <td></td>
 

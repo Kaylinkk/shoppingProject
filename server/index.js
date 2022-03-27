@@ -21,27 +21,32 @@ app.use(bodyParser.urlencoded({ extended: true })); //application/x-www-form-url
 app.use(bodyParser.json()); //json파일로 parsing
 
 app.use(cookieParser());
+
 app.use(cors({
-  origin: '*',
-  credential: 'true'
+  origin: 'https://www.ssg.com/',
+  credentials: 'true'
 })); // 모든 도메인에서 제한 없이 해당 서버에 요청을 보내고 응답을 받을 수 있다. 
 
 
-app.use(function (req, res, next) {
 
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  res.setHeader('Access-Control-Allow-Credentials', true);
+app.use(express.static('www'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-  next();
+
+app.use(bodyParser.json());
+
+
+app.get('/', function (req, res, next) {
+  // Handle the get for this route
 });
 
 
+app.post('/', function (req, res, next) {
+  // Handle the post for this route
+});
 app.use('/api/users', require('./routes/users'));
 app.use('/api/product', require('./routes/product'));
-//use this to show the image you have in node js server to client (react js)
-//https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
+
 app.use('/uploads', express.static('uploads'));
 
 // Serve static assets if in production

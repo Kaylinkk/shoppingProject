@@ -121,8 +121,8 @@ router.post('/products', (req, res) => {
                 if (err) return res.status(400).send(err)
                 return res.status(200).json({ success: true, product })
             })
-    })
 
+    })
 
 
 })

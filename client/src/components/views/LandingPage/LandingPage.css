@@ -1,5 +1,5 @@
 @import "~antd/dist/antd.css";
-
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
 /* .ant-card,
 .ant-card-bordered,
 .ant-card-hoverable {
@@ -14,6 +14,13 @@ img {
 .introduce {
   text-align: center;
   padding-bottom: 2rem;
+}
+
+.introduce > h2 {
+  font-family: "Luckiest Guy", cursive;
+  margin-top: 55px;
+  font-size: 3rem;
+  color: #faac20;
 }
 
 .searchfilter {
@@ -57,4 +64,16 @@ img {
 
 .btn:hover {
   background-color: #f7fafa;
+}
+
+.ant-input-affix-wrapper .ant-input {
+  min-height: 100%;
+  border-radius: 3rem;
+  background-color: #afafaf17;
+  border: none;
+}
+.anticon svg {
+  display: inline-block;
+  font-size: 26px;
+  color: #585858;
 }

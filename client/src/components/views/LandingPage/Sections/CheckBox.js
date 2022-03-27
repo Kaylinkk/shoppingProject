@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
-import { Collapse, Checkbox } from 'antd';
+import { Collapse } from 'antd';
+import '../Sections/CheckBox.css'
+
 const { Panel } = Collapse;
+
+
+
 
 function CheckBox(props) {
 
@@ -30,21 +35,25 @@ function CheckBox(props) {
 
     const renderCheckboxLists = () => props.list && props.list.map((data, index) => (
         <React.Fragment key={index} >
-            <Checkbox style={{ paddingRight: "4px" }}
-                onChange={() => handleToggle(data._id)} checked={Checked.indexOf(data._id) === -1 ? false : true} />
-            <span style={{ paddingRight: "1rem", fontSize: "20px" }}>{data.name}</span>
+
+            <label>
+                <input type="checkbox" style={{ paddingRight: "4px" }}
+                    onChange={() => handleToggle(data._id)} checked={Checked.indexOf(data._id) === -1 ? false : true} />
+                <div className='checkBox_list_name'>{data.name}</div>
+            </label>
+
         </React.Fragment>
     ))
     return (
 
-        <Collapse defaultActiveKey={['0']} bordered={false} >
 
-            <Panel header="❤🧡💛💚💙💜Category❤🧡💛💚💙💜" key="1">
 
-                {renderCheckboxLists()}
-            </Panel>
+        <div className="checkBox_list">
+            <h2>Do you want to see the same kind?</h2>
+            {renderCheckboxLists()}</div>
 
-        </Collapse>
+
+
 
     )
 }

@@ -3,26 +3,26 @@ import axios from 'axios'
 import { Row, Col } from 'antd';
 import ProductImage from './Sections/ProductImage';
 import ProductInfo from './Sections/ProductInfo';
+import { Link } from 'react-router-dom';
 import '../DetailPage/Sections/ProductImage.css'
 
-import GSshop from './../../utils/GSshop';
-import Fooden from './../../utils/Fooden';
-// import Homeplus from '../../utils/Homeplus';
-import SSG from '../../utils/SSG';
 
 
 function DetailPage(props) {
 
     let productId = props.match.params.productId
-    const [Product, setProduct] = useState({});
+    const [product, setProduct] = useState({});
+
+
     useEffect(() => {
         axios.get(`/api/product/productid?id=${productId}`)
             .then(response => {
-                // setProduct(response.data[0])???
+                // console.log(response)
                 setProduct(response.data.product[0])
 
             })
             .catch(err => alert(err))
+
     }, [])
 
     return (
@@ -32,14 +32,14 @@ function DetailPage(props) {
                 <Row gutter={[16, 16]} >
 
                     <Col lg={12} sm={24}>
-                        <ProductImage detail={Product} />
+                        <ProductImage detail={product} />
 
                     </Col>
                     <Col lg={12} sm={24} style={{ paddingLeft: '5rem' }}>
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <h1>{Product.title}</h1>
+                            <h1>{product.title}</h1>
                         </div>
-                        <ProductInfo detail={Product} />
+                        <ProductInfo detail={product} />
                     </Col>
                 </Row>
 
@@ -48,11 +48,22 @@ function DetailPage(props) {
             <br />
             <br />
             <div className='DetailPage_data' style={{ width: '100%', padding: '3rem 10rem' }}>
-                <h2>website</h2>
-                {/* <GSshop title={Product.title} /> */}
-                {/* <Fooden title={Product.title} /> */}
-                {/* <Homeplus title={Product.title} /> */}
-                <SSG title={Product.title} />
+                <div className="wrap">
+
+
+                    <Link to={`/compare/${product.title}`} state={{ product: product.title }}>
+                        <button className="button_comparePage">Compare Price</button>
+                    </Link>
+
+
+
+
+
+
+
+
+
+                </div>
 
 
             </div>

@@ -17,9 +17,9 @@ function ProductInfo(props) {
     }
 
     let ssg = `https://www.ssg.com/search.ssg?target=all&query=${props.detail.title}`
-    let elevenSreet = `https://search.11st.co.kr/Search.tmall?kwd=${props.detail.title}`
-    let naverShopping = `https://search.shopping.naver.com/search/all?query=${props.detail.title}`
-    let nonghyupmall = `https://www.nonghyupmall.com/BC1F010M/srchTotalList.nh?searchTerm_main=${props.detail.title}`
+    let lotte = `https://www.lotteon.com/search/search/search.ecn?render=search&platform=pc&q=${props.detail.title}`
+    let nongsarang = `https://www.nongsarang.co.kr/shop/shopbrand.html?search=${props.detail.title}`
+    let saiso = `https://www.cyso.co.kr/shop/search.php?qsort=&qorder=&qcaid=&qname=1&qmkname=1&qsearch=1&qfrom=&qto=&q=${props.detail.title}`
 
     return (
         <div>
@@ -47,18 +47,6 @@ function ProductInfo(props) {
 
             </div>
 
-
-
-
-
-
-            {/* <Descriptions title="Product Info">
-                <Descriptions.Item label="Price">{props.detail.price} KRW</Descriptions.Item>
-                <Descriptions.Item label="Description">{props.detail.description}</Descriptions.Item>
-                <Descriptions.Item label="rate"><Rate disabled defaultValue={4} /></Descriptions.Item>
-             
-            </Descriptions> */}
-
             <table className='tg'>
                 <thead>
                     <tr>
@@ -77,22 +65,22 @@ function ProductInfo(props) {
                     </tr>
                     <tr>
                         <td className="tg-c3ow">
-                            <a href={elevenSreet} target="_blank" rel="noopener noreferrer">
-                                <img className='img_logo' src='https://image.newdaily.co.kr/site/data/img/2017/06/28/2017062810060_0.jpg' alt="11street"></img></a>
+                            <a href={lotte} target="_blank" rel="noopener noreferrer">
+                                <img className='img_logo' src='https://cdn.speconomy.com/news/photo/202112/310636_310312_3850.png' alt="lotte"></img></a>
                         </td>
                         <td className="tg-c3ow"></td>
                     </tr>
                     <tr>
                         <td className="tg-c3ow">
-                            <a href={naverShopping} target="_blank" rel="noopener noreferrer">
-                                <img className='img_logo' src='https://cdnweb01.wikitree.co.kr/webdata/editor/202010/23/img_20201023120549_86827a0d.webp' alt="naver"></img></a>
+                            <a href={nongsarang} target="_blank" rel="noopener noreferrer">
+                                <img className='img_logo' src='http://www.todaychungnam.net/news/photo/202108/189868_191489_528.jpg' alt="nongsarang"></img></a>
                         </td>
                         <td className="tg-c3ow"> </td>
                     </tr>
                     <tr>
                         <td className="tg-c3ow">
-                            <a href={nonghyupmall} target="_blank" rel="noopener noreferrer">
-                                <img className='img_logo' src='https://www.cheumsketch.co.kr/img/mobile/common/partner_logo_n5.jpg' alt="nonghyupmall"></img></a></td>
+                            <a href={saiso} target="_blank" rel="noopener noreferrer">
+                                <img className='img_logo' src='http://www.dkitnews.com/imgdata/tk_sagunin_com/201604/2016042653387960.jpg' alt="saiso"></img></a></td>
                         <td className="tg-c3ow"></td>
                     </tr>
                 </tbody>

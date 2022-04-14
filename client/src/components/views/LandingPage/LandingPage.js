@@ -156,8 +156,6 @@ function LandingPage() {
                 <CheckBox list={grosery} handleFilter={filters => handleFilter(filters, "grosery")} />
 
                 {/* Cards */}
-
-
                 <Row gutter={[24, 24]} >
                     {renderCards}
                 </Row>

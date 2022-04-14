@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { Collapse } from 'antd';
 import '../Sections/CheckBox.css'
 
-const { Panel } = Collapse;
 
 
 

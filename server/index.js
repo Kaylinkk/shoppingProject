@@ -8,6 +8,12 @@ const path = require("path");
 const cors = require('cors');
 
 
+const lotteData = require("./Market");
+const SSGData = require("./Market2");
+const saisoData = require("./Market3");
+const nongsarangData = require("./Market4");
+
+
 const connect = mongoose.connect(config.mongoURI,
   {
     useNewUrlParser: true, useUnifiedTopology: true,
@@ -16,16 +22,18 @@ const connect = mongoose.connect(config.mongoURI,
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
 
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
 
 app.use(bodyParser.urlencoded({ extended: true })); //application/x-www-form-urlencoded 이런 상태로 parsing
 app.use(bodyParser.json()); //json파일로 parsing
 
 app.use(cookieParser());
 
-app.use(cors({
-  origin: 'https://www.ssg.com/',
-  credentials: 'true'
-})); // 모든 도메인에서 제한 없이 해당 서버에 요청을 보내고 응답을 받을 수 있다. 
+app.use(cors(corsOptions));
 
 
 
@@ -49,6 +57,8 @@ app.use('/api/product', require('./routes/product'));
 
 app.use('/uploads', express.static('uploads'));
 
+
+
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
 
@@ -66,6 +76,21 @@ if (process.env.NODE_ENV === "production") {
   });
 
 }
+
+app.get("/api/compare", async (req, res) => {
+  let title = req.query.title;
+
+
+  // res.json({ response: { market1: await weMapData(title) } });
+  // res.json({ response: { market2: await SSGData(title) } });
+
+  // res.json({ response: { market3: await saisoData(title) } });
+
+  res.json({ response: { market1: await lotteData(title), market2: await SSGData(title), market3: await saisoData(title), market4: await nongsarangData(title) } });
+
+});
+
+
 
 const port = process.env.PORT || 5000
 

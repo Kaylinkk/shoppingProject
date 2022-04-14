@@ -4,6 +4,7 @@ const multer = require('multer');
 const { Product } = require("../models/Product");
 
 
+
 //=================================
 //             product
 //=================================
@@ -98,10 +99,11 @@ router.post('/products', (req, res) => {
 
 
     //id=123123123,324234234,324234234  type=array
-    router.get('/productid', (req, res) => {
+    router.get('/productid', async (req, res) => {
 
         let type = req.query.type
         let productIds = req.query.id
+
 
         if (type === "array") {
             //id=123123123,324234234,324234234 이거를 
@@ -119,12 +121,14 @@ router.post('/products', (req, res) => {
             .populate('writer')
             .exec((err, product) => {
                 if (err) return res.status(400).send(err)
-                return res.status(200).json({ success: true, product })
+                return res.status(200).json({ product })
             })
+
 
     })
 
 
 })
+
 
 module.exports = router;

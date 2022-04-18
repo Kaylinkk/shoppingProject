@@ -70,10 +70,15 @@ img {
   min-height: 100%;
   border-radius: 3rem;
   background-color: #afafaf17;
-  border: none;
 }
 .anticon svg {
   display: inline-block;
   font-size: 26px;
   color: #585858;
+}
+
+@media (max-width: 900px) {
+  .ant-input {
+    font-size: 15px;
+  }
 }

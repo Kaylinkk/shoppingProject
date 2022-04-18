@@ -82,7 +82,7 @@ function UploadProductPage(props) {
                 {/* level1이 제일 크다. */}
             </div>
 
-            <Form >
+            <Form className='Upload_form'>
                 {/* drop zone */}
                 <FileUpload refreshFunction={updateImages} />
                 <br />

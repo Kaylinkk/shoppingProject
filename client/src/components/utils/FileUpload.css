@@ -25,6 +25,18 @@
   background: #ebe0cd;
 }
 
-.ant-btn {
+.upload_btn {
   top: 5rem;
+  left: 10rem;
+}
+
+@media (max-width: 900px) {
+  .upload_btn {
+    top: 10rem;
+    left: 7rem;
+  }
+
+  .dropzone_imageSection {
+    margin-right: -9rem;
+  }
 }

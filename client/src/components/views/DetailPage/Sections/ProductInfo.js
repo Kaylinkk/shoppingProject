@@ -22,7 +22,7 @@ function ProductInfo(props) {
     let saiso = `https://www.cyso.co.kr/shop/search.php?qsort=&qorder=&qcaid=&qname=1&qmkname=1&qsearch=1&qfrom=&qto=&q=${props.detail.title}`
 
     return (
-        <div>
+        <div className='info_wrap_wrap'>
             <div className='info_wrap'>
 
                 <div className='rate_wrap'>
@@ -51,7 +51,7 @@ function ProductInfo(props) {
                 <thead>
                     <tr>
                         <th className="tg-7btt">Company </th>
-                        <th className="tg-7btt">Price</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -87,7 +87,7 @@ function ProductInfo(props) {
             </table>
 
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <Button size="large" shape="round" type="danger" onClick={clickHandler}>
+                <Button className='addCartBtn' size="large" shape="round" type="danger" onClick={clickHandler}>
                     Add to Cart
                 </Button>
             </div>

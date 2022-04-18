@@ -27,7 +27,8 @@ function DetailPage(props) {
 
     return (
         <>
-            <div style={{ width: '100%', padding: '3rem 10rem' }}>
+            <div className='DetailPage_full'
+            >
                 <br />
                 <Row gutter={[16, 16]} >
 
@@ -35,7 +36,7 @@ function DetailPage(props) {
                         <ProductImage detail={product} />
 
                     </Col>
-                    <Col lg={12} sm={24} style={{ paddingLeft: '5rem' }}>
+                    <Col lg={12} sm={24} >
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
                             <h1>{product.title}</h1>
                         </div>
@@ -47,10 +48,8 @@ function DetailPage(props) {
             </div>
             <br />
             <br />
-            <div className='DetailPage_data' style={{ width: '100%', padding: '3rem 10rem' }}>
+            <div className='DetailPage_data' >
                 <div className="wrap">
-
-
                     <Link to={`/compare/${product.title}`} state={{ product: product.title }}>
                         <button className="button_comparePage">Compare Price</button>
                     </Link>

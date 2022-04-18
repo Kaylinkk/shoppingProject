@@ -1,3 +1,5 @@
+@import "~antd/dist/antd.css";
+
 .image-gallery-left-nav .image-gallery-svg,
 .image-gallery-right-nav .image-gallery-svg {
   height: 40px;
@@ -8,15 +10,6 @@
 .image-gallery-play-button .image-gallery-svg {
   height: 0;
   width: 0;
-}
-
-/* product info */
-@import "~antd/dist/antd.css";
-
-.ant-btn,
-.ant-btn-round,
-.ant-btn-lg {
-  background-color: #faac20;
 }
 
 /* DetailPage */
@@ -117,16 +110,33 @@ body {
   }
 }
 
+@media (max-width: 1680px) {
+  .DetailPage_full {
+    width: 100%;
+    padding: 3rem 10rem;
+  }
+
+  .DetailPage_data {
+    width: 100%;
+    padding: 3rem 10rem;
+  }
+}
+@media (max-width: 900px) {
+  .DetailPage_full {
+    padding: 41px;
+  }
+
+  .DetailPage_data {
+    padding: 41px;
+  }
+}
+
 /* productioninfo */
 
 .img_logo {
   width: 50%;
   max-height: 4rem;
   object-fit: contain;
-}
-
-.ant-col .ant-col-sm-24 .ant-col-lg-12 {
-  padding-left: 9rem;
 }
 
 .price_wrap {
@@ -149,4 +159,18 @@ body {
 
 .description_wrap p {
   margin-top: 12px;
+}
+
+.ant-btn,
+.ant-btn-round,
+.ant-btn-lg {
+  background-color: #e2e2e2;
+}
+
+.ant-btn-round.ant-btn-lg {
+  top: 1rem;
+}
+
+.addCartBtn {
+  border-color: transparent;
 }

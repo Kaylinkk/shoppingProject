@@ -43,11 +43,11 @@ function FileUpload(props) {
         <div className='dropzone' >
             <Dropzone onDrop={dropHandler}>
                 {({ getRootProps, getInputProps }) => (
-                    <div
+                    <div className='dropzone_imageSection'
                         {...getRootProps()}>
                         <input {...getInputProps()} />
 
-                        <Button>Click to Upload</Button>
+                        <Button className='upload_btn'>Click to Upload</Button>
 
 
                     </div>
@@ -62,6 +62,7 @@ function FileUpload(props) {
                     <div onClick={() => deleteHandler(image)} key={index}>
                         <img style={{ minWidth: '200px', width: '200px', height: '140px', overflowX: 'scroll' }}
                             src={`http://localhost:5000/${image}`}
+                            // src={`/${image}`}
                             alt="uploadfile" /></div>
                 ))}
             </div>

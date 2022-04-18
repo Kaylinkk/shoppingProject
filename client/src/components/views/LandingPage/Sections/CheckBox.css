@@ -56,3 +56,32 @@ label:nth-child(2n + 2) input[type="checkbox"]:checked ~ div {
 .checkBox_list_name {
   font-family: "Luckiest Guy", cursive;
 }
+
+@media (max-width: 900px) {
+  .checkBox_list {
+    padding: 0;
+  }
+
+  .checkBox_list_name {
+    font-size: 14px;
+  }
+  label div {
+    position: relative;
+    display: inline-block;
+    background: #faac2059;
+    padding: 7px 16px;
+    color: #92611f;
+    border-radius: 30px;
+    font-size: 20px;
+    margin: 4px 5px 4px 1px;
+    transition: 0.5s;
+    -webkit-user-select: none;
+    user-select: none;
+    overflow: hidden;
+  }
+
+  .search_input {
+    width: 20rem;
+    height: 50px;
+  }
+}

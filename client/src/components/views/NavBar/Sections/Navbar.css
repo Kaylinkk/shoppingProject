@@ -46,12 +46,16 @@
 }
 
 .menu__mobile-button {
-  float: right;
-  height: 32px;
+  height: 38px;
   padding: 6px;
   margin-top: 8px;
-  display: none !important; /* use of important to overwrite ant-btn */
+  display: none !important;
   background: #faac20;
+  left: 10rem;
+}
+
+.ant-btn-primary {
+  border: none;
 }
 
 .menu_drawer .ant-drawer-body {
@@ -79,13 +83,13 @@
   padding: 14px 24px !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .menu__mobile-button {
     display: inline-block !important;
   }
 
   .menu_left,
-  .menu_rigth {
+  .menu_right {
     display: none;
   }
 

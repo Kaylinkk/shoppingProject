@@ -1,7 +1,11 @@
 import React from 'react'
 import { Input } from 'antd';
 import { useState } from 'react';
+
+import './CheckBox.css'
+
 const { Search } = Input;
+
 
 function SearchFilter(props) {
 
@@ -17,7 +21,8 @@ function SearchFilter(props) {
         <div> <Search placeholder="Search everything at our Store"
             onChange={searchHandler}
             value={SearchTerms}
-            style={{ width: "40rem", height: "50px" }} /></div>
+            className="search_input"
+        /></div>
     )
 }
 

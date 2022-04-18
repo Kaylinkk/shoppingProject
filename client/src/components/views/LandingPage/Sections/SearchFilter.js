@@ -18,7 +18,7 @@ function SearchFilter(props) {
 
 
     return (
-        <div> <Search placeholder="Search everything at our Store"
+        <div> <Search placeholder="Search everything at our Store :)"
             onChange={searchHandler}
             value={SearchTerms}
             className="search_input"

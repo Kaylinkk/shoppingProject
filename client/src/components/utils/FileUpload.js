@@ -61,8 +61,8 @@ function FileUpload(props) {
                 {Images.map((image, index) => (
                     <div onClick={() => deleteHandler(image)} key={index}>
                         <img style={{ minWidth: '200px', width: '200px', height: '140px', overflowX: 'scroll' }}
-                            src={`http://localhost:5000/${image}`}
-                            // src={`/${image}`}
+                            // src={`http://localhost:5000/${image}`}
+                            src={`/${image}`}
                             alt="uploadfile" /></div>
                 ))}
             </div>

@@ -8,6 +8,10 @@ label {
 label input[type="checkbox"] {
   display: none;
 }
+.search_input {
+  width: 40rem;
+  height: 50px;
+}
 
 label div {
   position: relative;

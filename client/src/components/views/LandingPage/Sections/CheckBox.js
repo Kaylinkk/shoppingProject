@@ -47,7 +47,7 @@ function CheckBox(props) {
 
 
         <div className="checkBox_list">
-            <h2>Do you want to see the same kind?</h2>
+            <h2>Do you want to see the same kind? </h2>
             {renderCheckboxLists()}</div>
 
 

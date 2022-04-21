@@ -6,94 +6,88 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const cors = require('cors');
+const {CrawlerFactory} = require("./crawler/crawler.factory");
+const {CRAWLER_TYPE} = require("./crawler/crawler-type");
 
+const PORT = process.env.PORT || 5000;
 
-const lotteData = require("./Market");
-const SSGData = require("./Market2");
-const saisoData = require("./Market3");
-const nongsarangData = require("./Market4");
+(async () => {
 
+  await mongoose.connect(config.mongoURI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false
+      })
+      .then(() => console.log('MongoDB initialized successfully.'))
+      .catch(err => console.log(err));
 
-const connect = mongoose.connect(config.mongoURI,
-  {
-    useNewUrlParser: true, useUnifiedTopology: true,
-    useCreateIndex: true, useFindAndModify: false
-  })
-  .then(() => console.log('MongoDB Connected...'))
-  .catch(err => console.log(err));
+  const corsOptions = {
+    origin: "*",
+    credentials: true,
+    optionSuccessStatus: 200,
+  };
 
-const corsOptions = {
-  origin: "*",
-  credentials: true,
-  optionSuccessStatus: 200,
-};
+  app.use(bodyParser.urlencoded({ extended: true })); //application/x-www-form-urlencoded 이런 상태로 parsing
+  app.use(bodyParser.json()); //json파일로 parsing
+  app.use(cookieParser());
+  app.use(cors(corsOptions));
+  app.use(express.static('www'));
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({ extended: true })); //application/x-www-form-urlencoded 이런 상태로 parsing
-app.use(bodyParser.json()); //json파일로 parsing
+  app.use('/api/users', require('./routes/users'));
+  app.use('/api/product', require('./routes/product'));
+  app.use('/uploads', express.static('uploads'));
 
-app.use(cookieParser());
+  // Serve static assets if in production
+  if (process.env.NODE_ENV === "production") {
 
-app.use(cors(corsOptions));
+    // Set static folder
+    // All the javascript and css files will be read and served from this folder
+    app.use(express.static("client/build"));
 
+    // index.html for all page routes    html or routing and naviagtion
+    // app.get("*", (req, res) => {
+    //   res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
+    // });
 
+    app.get("*", (req, res) => {
+      res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
+    });
 
-app.use(express.static('www'));
-app.use(bodyParser.urlencoded({ extended: true }));
+  }
 
+  app.get("/api/compare", async (req, res, next) => {
+    try {
+      let title = req.query.title;
 
-app.use(bodyParser.json());
+      const [market1, market2, market3, market4] = await Promise.all([
+        CrawlerFactory.getCrawler(CRAWLER_TYPE.LOTTE)
+            .then(crawler => crawler.search(title)),
+        CrawlerFactory.getCrawler(CRAWLER_TYPE.NONGSARANG)
+            .then(crawler => crawler.search(title)),
+        CrawlerFactory.getCrawler(CRAWLER_TYPE.CYSO)
+            .then(crawler => crawler.search(title)),
+        CrawlerFactory.getCrawler(CRAWLER_TYPE.SSG)
+            .then(crawler => crawler.search(title)),
+      ]);
 
+      res.json({ response: { market1, market2, market3, market4 } });
+    } catch (exception) {
+      next(exception);
+    }
 
-app.get('/', function (req, res, next) {
-  // Handle the get for this route
-});
-
-
-app.post('/', function (req, res, next) {
-  // Handle the post for this route
-});
-app.use('/api/users', require('./routes/users'));
-app.use('/api/product', require('./routes/product'));
-
-app.use('/uploads', express.static('uploads'));
-
-
-
-// Serve static assets if in production
-if (process.env.NODE_ENV === "production") {
-
-  // Set static folder   
-  // All the javascript and css files will be read and served from this folder
-  app.use(express.static("client/build"));
-
-  // index.html for all page routes    html or routing and naviagtion
-  // app.get("*", (req, res) => {
-  //   res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
-  // });
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
   });
 
-}
+  app.use(function (error, req, res, next) {
+    console.error(error.message, error);
+    res.status(500);
+    res.json({
+      status: 500,
+      message: 'Internal Server Error',
+    });
+  });
 
-app.get("/api/compare", async (req, res) => {
-  let title = req.query.title;
-
-
-  // res.json({ response: { market1: await weMapData(title) } });
-  // res.json({ response: { market2: await SSGData(title) } });
-
-  // res.json({ response: { market3: await saisoData(title) } });
-
-  res.json({ response: { market1: await lotteData(title), market2: await SSGData(title), market3: await saisoData(title), market4: await nongsarangData(title) } });
-
-});
-
-
-
-const port = process.env.PORT || 5000
-
-app.listen(port, () => {
-  console.log(`Server Listening on ${port}`)
-});
+  app.listen(PORT, () => console.log(`Server Listening on ${PORT}`));
+})();

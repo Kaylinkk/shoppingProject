@@ -3,6 +3,12 @@ module.exports = {
     puppeteer: {
         launchOptions: {
             headless: true,
+            args: [
+                '--enable-features=NetworkService,NetworkServiceInProcess'
+                ,'--disable-setuid-sandbox'
+                ,'--no-sandbox'
+                ,'--no-zygote'
+            ]
         }
     }
 }
